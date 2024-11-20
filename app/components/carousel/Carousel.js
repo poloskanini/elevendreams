@@ -2,7 +2,6 @@
 
 import { motion, useTransform, useScroll } from "framer-motion";
 import { useRef } from "react";
-import styles from './carousel.module.scss'
 
 const Example = () => {
   return (

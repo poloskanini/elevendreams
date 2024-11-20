@@ -1,12 +1,9 @@
 import styles from './contact.module.scss'
-
 import { EnvelopeIcon, PhoneIcon } from '@heroicons/react/24/outline'
 
 export default function Contact() {
   return (
-
     <>
-
     <div className={styles.fuzzyBackground}></div>
 
     <div className={styles.contactWrapper}>

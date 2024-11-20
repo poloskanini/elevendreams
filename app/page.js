@@ -8,11 +8,9 @@ export default function Home() {
       <Hero
         title={"Eleven Dreams"}
       />
-
       <Banner />
       <Carousel />
     <div className="bg-neutral-900 h-screen"></div>
-
     </>
   );
 }

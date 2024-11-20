@@ -12,7 +12,7 @@ export default function Banner() {
   return (
     <>
     <div className="relative font-sans before:absolute before:w-full before:h-full before:inset-0 before:bg-neutral-900 before:opacity-60 before:z-10">
-      <Image src="/images/cigalescene2.png" layout="fill" objectFit="cover" alt="Banner Image" className="absolute inset-0 w-full h-full object-cover" />
+      <Image src="/images/cigalescene2.png" fill style alt="Banner Image" className="absolute inset-0 w-full h-full object-cover" />
 
       <div className={openSans.className}>
 

@@ -1,7 +1,5 @@
-import Image from "next/image"
 import styles from './hero.module.scss'
 import Link from 'next/link'
-import { FiMail } from "react-icons/fi";
 import { CiMail } from "react-icons/ci";
 
 const navigation = {
