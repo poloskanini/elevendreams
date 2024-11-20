@@ -72,18 +72,6 @@ export default function Hero({ title, subtitle }) {
         </div>
 
       </div>
-      
-      <div className={styles.fuzzyBackground}></div>
-
-      {/* <Image
-        src="/images/albumcover.webp"
-        alt="Cover Album Eleven Dreams"
-        fill // Remplace `layout="fill"`
-        style={{ objectFit: 'cover' }} // Remplace `objectFit="cover"`
-        className="absolute -z-10 opacity-80"
-        priority
-      >
-      </Image> */}
 
     </section>
   )

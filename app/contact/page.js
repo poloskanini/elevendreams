@@ -48,7 +48,7 @@ export default function Contact() {
                 />
               </div>
             </div>
-            <h4 className="text-pretty text-2xl font-semibold tracking-tight text-white sm:text-3xl">Contact us</h4>
+            <h4 className="text-pretty text-2xl font-semibold tracking-tight text-white sm:text-3xl">Contactez nous</h4>
             {/* <p className="mt-6 text-lg/8 text-gray-300">
               Proin volutpat consequat porttitor cras nullam gravida at. Orci molestie a eu arcu. Sed ut tincidunt
               integer elementum id sem. Arcu sed malesuada et magna.
@@ -85,7 +85,7 @@ export default function Contact() {
             <div className="grid grid-cols-1 gap-x-8 gap-y-6 sm:grid-cols-2">
               <div>
                 <label htmlFor="first-name" className="block text-sm/6 font-semibold text-white">
-                  First name
+                  Prénom
                 </label>
                 <div className="mt-2.5">
                   <input
@@ -99,7 +99,7 @@ export default function Contact() {
               </div>
               <div>
                 <label htmlFor="last-name" className="block text-sm/6 font-semibold text-white">
-                  Last name
+                  Nom
                 </label>
                 <div className="mt-2.5">
                   <input
@@ -127,7 +127,7 @@ export default function Contact() {
               </div>
               <div className="sm:col-span-2">
                 <label htmlFor="phone-number" className="block text-sm/6 font-semibold text-white">
-                  Phone number
+                  Téléphone
                 </label>
                 <div className="mt-2.5">
                   <input
@@ -159,7 +159,7 @@ export default function Contact() {
                 type="submit"
                 className="rounded-md px-3.5 py-2.5 text-center text-sm font-semibold text-black shadow-sm hover:bg-indigo-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500 bg-white  hover:bg-white/90"
               >
-                Send message
+                Envoyer le message
               </button>
             </div>
           </div>

@@ -1,6 +1,6 @@
-import Image from "next/image";
 import Hero from './components/hero/Hero.js';
-import Header from "./components/header/Header.js";
+import Banner from './components/banner/Banner.js';
+import Carousel from './components/carousel/Carousel.js';
 
 export default function Home() {
   return (
@@ -8,7 +8,11 @@ export default function Home() {
       <Hero
         title={"Eleven Dreams"}
       />
-     
+
+      <Banner />
+      <Carousel />
+    <div className="bg-neutral-900 h-screen"></div>
+
     </>
   );
 }
