@@ -59,7 +59,7 @@ export default function Hero({ title, subtitle }) {
       <div className={styles.content}>
 
         <div className="socialsWrapper">
-          <div className="flex gap-x-6 bg-black bg-opacity-40 p-3 rounded-xl">
+          <div className="flex gap-x-6 bg-black bg-opacity-40 p-1 rounded-xl">
             {navigation.social.map((item) => (
               <Link key={item.name} href={item.href} className="group relative p-3 text-gray-600 hover:text-gray-800 transition duration-300">
                 <span className="sr-only">{item.name}</span>

@@ -7,6 +7,10 @@ module.exports = {
   ],
   theme: {
     extend: {
+      screens: {
+        ipad: '769px', // Ajoutez un breakpoint pour 820px
+        ipad2: '1025px', // Ajoutez un breakpoint pour 820px
+      },
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
