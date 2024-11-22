@@ -20,7 +20,7 @@ export default function Header({ headerTitle }) {
       <nav className={styles.navLinks}>
         <Link
           href="/"
-          className='font-medium text-xl leading-10'
+          className='font-semibold text-xl leading-10'
           onClick={closeNav}
         >
           HOME
@@ -30,7 +30,7 @@ export default function Header({ headerTitle }) {
         
         <Link
           href="/contact"
-          className='font-medium text-xl leading-10'
+          className='font-semibold text-xl leading-10'
           onClick={closeNav}
         >
           CONTACT

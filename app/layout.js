@@ -14,15 +14,19 @@ const geistMono = localFont({
 });
 
 export const metadata = {
+  metadataBase: new URL("https://www.elevendreams.fr"),
   title: "Eleven Dreams",
   description: "Eleven Dreams, c’est un Rock-Pop, à la fois brut et subtil, où les sonorités acoustiques électriques et symphoniques s’entremêlent pour distiller une musique d’énergie et d’émotions.",
   openGraph: {
+    type: "website",
+    locale: "fr_FR",
+    site_name: "Eleven Dreams",
     title: "Eleven Dreams",
     description: "Eleven Dreams, c’est un Rock-Pop, à la fois brut et subtil, où les sonorités acoustiques électriques et symphoniques s’entremêlent pour distiller une musique d’énergie et d’émotions.",
     url: "https://www.elevendreams.fr",
     images: [
       {
-        url: "/images/albumcover.webp",
+        url: "https://www.elevendreams.fr/images/albumcover.webp",
         width: 1200,
         height: 630,
         alt: "Eleven Dreams",
@@ -33,7 +37,7 @@ export const metadata = {
     card: "summary_large_image",
     title: "Eleven Dreams",
     description: "Eleven Dreams, c’est un Rock-Pop, à la fois brut et subtil, où les sonorités acoustiques électriques et symphoniques s’entremêlent pour distiller une musique d’énergie et d’émotions.",
-    images: ["/images/albumcover.webp"],
+    images: ["https://www.elevendreams.fr/images/albumcover.webp"],
   },
 };
 
