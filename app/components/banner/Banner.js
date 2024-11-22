@@ -17,7 +17,7 @@ export default function Banner() {
 
       <div className={openSans.className}>
 
-        <div className="min-h-[950px] relative z-50 h-full max-w-6xl mx-auto flex flex-col justify-end text-white p-10 md:pb-32">
+        <div className="min-h-[950px] relative z-50 h-full max-w-6xl mx-auto flex flex-col justify-end text-white p-10">
           <h3 className="sm:text-3xl text-2xl font-black text-yellow-600 mt-5 mb-3 text-center">BIOGRAPHIE</h3>
           {/* <h4 className="font-thin text-center">
             L&apos;histoire d&apos;<span className={`${styles.bandName} font-black`}>Eleven Dreams</span>
@@ -27,20 +27,20 @@ export default function Banner() {
 
           <div className="innerBiography p-5 leading-8">
 
-            <p className="sm:text-lg text-base text-white-200 leading-7 text-justify "><span className={`${styles.bandName} font-black text-yellow-600`}>Eleven Dreams</span>, c’est un Rock-Pop, à la fois brut et subtil, où les sonorités acoustiques électriques et symphoniques s’entremêlent pour distiller une musique d’énergie et d’émotions.</p>
+            <p className="sm:text-lg text-base text-white-200 leading-7 text-justify "><span className={`${styles.bandName} font-black`}>Eleven Dreams</span> incarne un Rock-Pop intense et authentique, où les sonorités acoustiques, électriques et symphoniques s&apos;entremêlent pour offrir une musique d&apos;énergie et d&apos;émotions.</p>
 
             <br/>
             
-            <p className="sm:text-lg text-base text-justify text-white-200 leading-7">Vainqueur du Tremplin Fallenfest Saison 6, et un 1er E.P &quot;Going On&quot; enregistré à Capitol Studios chaleureusement accueilli par la critique parisienne, <span className={`${styles.bandName} font-black text-yellow-600`}>Eleven Dreams</span> est actuellement en préparation de son 1er album.</p>
+            <p className="sm:text-lg text-base text-justify text-white-200 leading-7">Récompensé par la nomination de &quot;Grand Lauréat&quot; lors du Tremplin Fallenfest (Saison 6), <span className={`${styles.bandName} font-black`}>Eleven Dreams</span> &nbsp;s&apos;est alors fait remarquer avec son 1er E.P &quot;Going On&quot; enregistré aux légendaires <i>Capitol Studios</i> et salué par la critique parisienne. Aujourd&apos;hui, ils se consacrent pleinement à la création de leur 1er album, une étape cruciale dans leur parcours.</p>
             
             <br/>
             
             <p className="sm:text-lg text-base text-justify text-white-200 leading-7">
-            Les 4 musiciens continuent d&apos;arpenter les scènes en parallèle, toujours plus désireux de faire vibrer leur public avec un son généreux, percutant, et planant, aux frontières de Pink Floyd, Coldplay, ou encore Muse…</p>
+            Sur scène, les quatre musiciens d&apos;<span className={`${styles.bandName} font-black`}>Eleven Dreams</span>&nbsp; (Nicolas BARTHÈS - Gabriel PONS - Laurent BERGEON - Arnaud LEVIOT) livrent des performances captivantes, oscillant entre intensité et envolées planantes, dans un univers qui rappelle souvent Pink Floyd, Coldplay ou encore Muse.</p>
 
             <br/>
             
-            <p className="sm:text-lg text-base text-justify text-white-200 leading-7"><span className={`${styles.bandName} font-black text-yellow-600`}>Eleven Dreams</span> s’est produit dans de nombreuses salles de concert franciliennes...</p>
+            <p className="sm:text-lg text-base text-justify text-white-200 leading-7"><span className={`${styles.bandName} font-black`}>Eleven Dreams</span>&nbsp; a déjà conquis de nombreuses scènes en Île-de-France, laissant à chaque fois une empreinte vibrante...</p>
 
           </div>
           
