@@ -48,6 +48,18 @@ export default function RootLayout({ children }) {
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         {children}
+        {/* Badge Linkaband */}
+        <a
+          href="https://linkaband.com/maybe?utm_source=badge&utm_campaign=161561"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <img
+            src="https://linkaband.com/assets/images/validation/reservation-noir.png"
+            alt="Eleven Dreams"
+            style={{ width: '130px', height: '130px' }}
+          />
+        </a>
         
         <Header
         headerTitle={"Eleven Dreams"}
