@@ -11,7 +11,7 @@ const openSans = Open_Sans({
 
 export default function Banner() {
   return (
-    <div className="relative font-sans before:absolute before:w-full before:h-full before:inset-0 before:bg-neutral-900 before:opacity-60 before:z-10" id="accueil">
+    <div className="relative font-sans before:absolute before:w-full before:h-full before:inset-0 before:bg-neutral-900 before:opacity-60 before:z-10" id="bio">
       
       {/* Vidéo en arrière-plan */}
       <video
@@ -26,7 +26,7 @@ export default function Banner() {
         Votre navigateur ne supporte pas les vidéos HTML5.
       </video>
 
-      <div className={openSans.className}>
+      <div className={openSans.className} id="bio">
         <div className="min-h-[950px] relative z-10 h-full max-w-6xl mx-auto flex flex-col justify-center text-white p-10">
           <h3 className="sm:text-3xl text-2xl font-black text-yellow-600 mt-5 mb-3 text-center">BIOGRAPHIE</h3>
 

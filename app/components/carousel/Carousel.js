@@ -6,7 +6,7 @@ import { useRef } from "react";
 const Example = () => {
   return (
     <>
-      <div className="bg-neutral-900">
+      <div className="bg-neutral-900" id="galerie">
         <HorizontalScrollCarousel />
       </div>
       <div className="bg-neutral-900 text-center h-screen text-2xl">

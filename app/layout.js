@@ -2,6 +2,7 @@ import localFont from "next/font/local";
 import "./globals.css";
 import Header from "./components/header/Header.js";
 import FlipNavWrapper from "./components/flipNav/FlipNav";
+import Image from "next/image";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -55,18 +56,16 @@ export default function RootLayout({ children }) {
           target="_blank"
           rel="noopener noreferrer"
         >
-          <img
-            src="https://linkaband.com/assets/images/validation/reservation-noir.png"
-            alt="Eleven Dreams"
-            style={{ width: '130px', height: '130px' }}
-          />
+          <Image src="https://linkaband.com/assets/images/validation/reservation-noir.png" alt="Eleven Dreams" width={130} height={130} />
         </a>
         
         {/* <Header
         headerTitle={"Eleven Dreams"}
       /> */}
 
-   
+      {/* <FlipNavWrapper headerTitle={"Eleven Dreams"}>
+
+      </FlipNavWrapper> */}
       </body>
     </html>
   );

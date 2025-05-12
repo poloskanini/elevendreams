@@ -1,6 +1,7 @@
 "use client"
 import { motion, AnimatePresence } from "framer-motion";
 import { useState, useEffect } from "react";
+import { useRouter, usePathname } from "next/navigation";
 import { FiMenu, FiArrowRight } from "react-icons/fi";
 import Link from "next/link";
 import styles from './flipnav.module.scss'
@@ -9,8 +10,16 @@ import styles from './flipnav.module.scss'
 const FlipNavWrapper = () => {
 
   const [showNav, setShowNav] = useState(false);
+  const pathname = usePathname();
 
   useEffect(() => {
+
+    if (pathname === "/contact") {
+      setShowNav(true);
+
+      return;
+    }
+
     const handleScroll = () => {
       if (window.scrollY > 80) {
         setShowNav(true);
@@ -21,7 +30,7 @@ const FlipNavWrapper = () => {
 
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  }, [pathname]);
 
   return (
 
@@ -54,7 +63,7 @@ const FlipNav = () => {
     <nav className="p-4  flex items-center justify-between relative w-full">
       <NavLeft setIsOpen={setIsOpen} />
 
-      <NavMenu isOpen={isOpen} />
+      <NavMenu isOpen={isOpen} setIsOpen={setIsOpen}/>
     </nav>
   );
 };
@@ -99,17 +108,39 @@ const NavLeft = ({ setIsOpen }) => {
       </Link>
 
       {/* <Logo /> */}
-      <NavLink text="Accueil" href="/"/>
-      <NavLink text="Galerie" href="/"/>
+      <NavLink text="Bio" href="#bio"/>
+      <NavLink text="Galerie" href="#galerie"/>
       <NavLink text="Contact" href="/contact"/>
     </div>
   );
 };
 
 const NavLink = ({ text, href }) => {
+
+  const router = useRouter();
+  const pathname = usePathname();
+
+  const handleClick = (e) => {
+    if (!href.startsWith("#")) return; // liens normaux, pas d’ancre
+
+    e.preventDefault();
+
+    const target = href.replace("#", "");
+
+    if (pathname !== "/") {
+      // On change de page avec un hash
+      router.push("/" + href);
+    } else {
+      // On est déjà sur / → scroll vers l’ancre
+      const el = document.getElementById(target);
+      if (el) el.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
   return (
     <Link
       href={href}
+      onClick={handleClick}
       rel="nofollow"
       className="hidden lg:block h-[30px] overflow-hidden font-medium"
     >
@@ -144,7 +175,7 @@ const NavRight = () => {
   );
 };
 
-const NavMenu = ({ isOpen }) => {
+const NavMenu = ({ isOpen, setIsOpen }) => {
   return (
     <motion.div
       variants={menuVariants}
@@ -152,19 +183,45 @@ const NavMenu = ({ isOpen }) => {
       animate={isOpen ? "open" : "closed"}
       className="absolute p-4 bg-[#083643] shadow-lg left-0 right-0 top-full origin-top flex flex-col gap-4"
     >
-      <MenuLink text="Accueil" href="/"/>
-      <MenuLink text="Galerie" href="galerie"/>
-      <MenuLink text="Contact" href="contact"/>
+      <MenuLink text="Bio" href="#bio" setIsOpen={setIsOpen}/>
+      <MenuLink text="Galerie" href="#galerie" setIsOpen={setIsOpen}/>
+      <MenuLink text="Contact" href="/contact" setIsOpen={setIsOpen}/>
     </motion.div>
   );
 };
 
-const MenuLink = ({ text }) => {
+const MenuLink = ({ text, href, setIsOpen }) => {
+
+  const router = useRouter();
+  const pathname = usePathname();
+
+  const handleClick = (e) => {
+    if (!href.startsWith("#")) {
+      setIsOpen(false); // Fermer même pour lien classique
+      return;
+    };
+
+    e.preventDefault();
+
+    const target = href.replace("#", "");
+
+    if (pathname !== "/") {
+      router.push("/" + href);
+    } else {
+      const el = document.getElementById(target);
+      if (el) el.scrollIntoView({ behavior: "smooth" });
+    }
+
+    setIsOpen(false); // Fermer après le scroll
+
+  };
+
   return (
     <motion.a
       variants={menuLinkVariants}
+      onClick={handleClick}
       rel="nofollow"
-      href="#"
+      href={href}
       className="h-[30px] overflow-hidden font-medium text-sm flex items-start gap-2"
     >
       <motion.span variants={menuLinkArrowVariants}>
