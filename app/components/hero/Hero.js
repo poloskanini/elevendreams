@@ -6,7 +6,7 @@ const navigation = {
   social: [
     {
       name: 'Facebook',
-      href: 'https://www.facebook.com/maybetheband',
+      href: 'https://www.facebook.com/elevendreamsmusic',
       icon: (props) => (
         <svg fill="white" viewBox="0 0 24 24" {...props}>
           <path
@@ -19,7 +19,7 @@ const navigation = {
     },
     {
       name: 'Instagram',
-      href: 'https://www.instagram.com/maybe_the_band/',
+      href: 'https://www.instagram.com/elevendreamsmusic',
       icon: (props) => (
         <svg fill="white" viewBox="0 0 24 24" {...props}>
           <path
@@ -32,7 +32,7 @@ const navigation = {
     },
     {
       name: 'YouTube',
-      href: 'https://www.youtube.com/@maybeband',
+      href: 'https://www.youtube.com/@elevendreamsmusic',
       icon: (props) => (
         <svg fill="white" viewBox="0 0 24 24" {...props}>
           <path
@@ -61,7 +61,7 @@ export default function Hero({ title, subtitle }) {
         <div className="socialsWrapper">
           <div className="flex gap-x-6 bg-black bg-opacity-40 p-1 rounded-xl">
             {navigation.social.map((item) => (
-              <Link key={item.name} href={item.href} className="group relative p-3 text-gray-600 hover:text-gray-800 transition duration-300">
+              <Link key={item.name} href={item.href} target="_blank" className="group relative p-3 text-gray-600 hover:text-gray-800 transition duration-300">
                 <span className="sr-only">{item.name}</span>
                 <item.icon aria-hidden="true" className="h-5 w-5 sm:h-7 sm:w-7 group-hover:scale-125 group-hover:text-gray-400 transition-transform duration-300" />
               </Link>

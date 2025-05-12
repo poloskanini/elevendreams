@@ -1,15 +1,5 @@
 .flipNavHeader {
-  top: 0;
-  display: flex;
-  justify-content: center;
-  z-index: 10;
-  position: fixed;
-  text-align: center;
-  width: 100%;
-  background: rgba(0,0,0, .3);
-  backdrop-filter: blur(5px);
-  transition: height .5s ease-in-out, .5s ease-in-out;
-  z-index: 100;
+
 
   .headerTitle {
     font-size: clamp(1rem, 1vw, 2rem);

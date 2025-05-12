@@ -27,7 +27,7 @@ export default function Banner() {
       </video>
 
       <div className={openSans.className}>
-        <div className="min-h-[950px] relative z-50 h-full max-w-6xl mx-auto flex flex-col justify-center text-white p-10">
+        <div className="min-h-[950px] relative z-10 h-full max-w-6xl mx-auto flex flex-col justify-center text-white p-10">
           <h3 className="sm:text-3xl text-2xl font-black text-yellow-600 mt-5 mb-3 text-center">BIOGRAPHIE</h3>
 
           <br/>

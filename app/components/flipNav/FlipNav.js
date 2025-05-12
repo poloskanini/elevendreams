@@ -1,16 +1,50 @@
 "use client"
-import { motion } from "framer-motion";
-import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { useState, useEffect } from "react";
 import { FiMenu, FiArrowRight } from "react-icons/fi";
+import Link from "next/link";
 import styles from './flipnav.module.scss'
 
 
 const FlipNavWrapper = () => {
+
+  const [showNav, setShowNav] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 80) {
+        setShowNav(true);
+      } else {
+        setShowNav(false);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   return (
-    <div className={`${styles.flipNavHeader}`}>
-      <FlipNav />
-      <div />
-    </div>
+
+    <AnimatePresence>
+      {showNav && (
+        <motion.div
+          initial={{ y: -100, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          exit={{ y: -100, opacity: 0 }}
+          transition={{ duration: 0.4, ease: "easeOut" }}
+          className={`fixed top-0 left-0 w-full z-50 bg-[#083643] bg-opacity-90 shadow-md ${styles.flipNavHeader}`}
+        >
+          <div className={`${styles.flipNavHeader}`}>
+            <FlipNav />
+          </div>
+        </motion.div>
+      )}
+    </AnimatePresence>
+    
+    // <div className={`${styles.flipNavHeader}`}>
+    //   <FlipNav />
+    //   <div />
+    // </div>
   );
 };
 
@@ -59,29 +93,33 @@ const NavLeft = ({ setIsOpen }) => {
       >
         <FiMenu />
       </motion.button>
-      <h1 className={`${styles.headerTitle}`}>Eleven Dreams</h1>
+
+      <Link href="/">
+        <h1 className={`${styles.headerTitle}`}>Eleven Dreams</h1>
+      </Link>
+
       {/* <Logo /> */}
-      <NavLink text="Accueil" />
-      <NavLink text="Galerie" />
-      <NavLink text="Contact" />
+      <NavLink text="Accueil" href="/"/>
+      <NavLink text="Galerie" href="/"/>
+      <NavLink text="Contact" href="/contact"/>
     </div>
   );
 };
 
-const NavLink = ({ text }) => {
+const NavLink = ({ text, href }) => {
   return (
-    <a
-      href="#"
+    <Link
+      href={href}
       rel="nofollow"
       className="hidden lg:block h-[30px] overflow-hidden font-medium"
     >
       <motion.div whileHover={{ y: -30 }}>
         <span className="flex items-center h-[30px] text-white">{text}</span>
-        <span className="flex items-center h-[30px] text-indigo-600">
+        <span className="flex items-center h-[30px] text-[#6bb3cb]">
           {text}
         </span>
       </motion.div>
-    </a>
+    </Link>
   );
 };
 
@@ -112,11 +150,11 @@ const NavMenu = ({ isOpen }) => {
       variants={menuVariants}
       initial="closed"
       animate={isOpen ? "open" : "closed"}
-      className="absolute p-4 bg-white shadow-lg left-0 right-0 top-full origin-top flex flex-col gap-4"
+      className="absolute p-4 bg-[#083643] shadow-lg left-0 right-0 top-full origin-top flex flex-col gap-4"
     >
-      <MenuLink text="Accueil" />
-      <MenuLink text="Galerie" />
-      <MenuLink text="Contact" />
+      <MenuLink text="Accueil" href="/"/>
+      <MenuLink text="Galerie" href="galerie"/>
+      <MenuLink text="Contact" href="contact"/>
     </motion.div>
   );
 };
@@ -127,14 +165,14 @@ const MenuLink = ({ text }) => {
       variants={menuLinkVariants}
       rel="nofollow"
       href="#"
-      className="h-[30px] overflow-hidden font-medium text-lg flex items-start gap-2"
+      className="h-[30px] overflow-hidden font-medium text-sm flex items-start gap-2"
     >
       <motion.span variants={menuLinkArrowVariants}>
-        <FiArrowRight className="h-[30px] text-gray-950" />
+        <FiArrowRight className="h-[30px] text-white" />
       </motion.span>
       <motion.div whileHover={{ y: -30 }}>
-        <span className="flex items-center h-[30px] text-gray-500">{text}</span>
-        <span className="flex items-center h-[30px] text-indigo-600">
+        <span className="flex items-center h-[30px] text-white">{text}</span>
+        <span className="flex items-center h-[30px] text-[#6bb3cb]">
           {text}
         </span>
       </motion.div>
