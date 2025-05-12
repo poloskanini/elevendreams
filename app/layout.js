@@ -1,6 +1,7 @@
 import localFont from "next/font/local";
 import "./globals.css";
 import Header from "./components/header/Header.js";
+import FlipNavWrapper from "./components/flipNav/FlipNav";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -61,9 +62,13 @@ export default function RootLayout({ children }) {
           />
         </a>
         
-        <Header
+        {/* <Header
         headerTitle={"Eleven Dreams"}
-      />
+      /> */}
+
+      <FlipNavWrapper headerTitle={"Eleven Dreams"}>
+
+      </FlipNavWrapper>
       </body>
     </html>
   );

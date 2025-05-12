@@ -14,7 +14,7 @@ export default function Header({ headerTitle }) {
   return (
     <>
     
-    <header className={`${styles.header} ${isActive ? styles.expanded : ''} justify-between items-center sm:fixed ipad:justify-center px-5 2xl:h-40 xl:h-30 lg:h-28 md:h-20 h-20`}>
+    <header className={`${styles.header} ${isActive ? styles.expanded : ''} justify-between items-center sm:fixed h-20`}>
 
     {isActive && (
       <nav className={styles.navLinks}>
