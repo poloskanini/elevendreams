@@ -66,9 +66,7 @@ export default function RootLayout({ children }) {
         headerTitle={"Eleven Dreams"}
       /> */}
 
-      <FlipNavWrapper headerTitle={"Eleven Dreams"}>
-
-      </FlipNavWrapper>
+   
       </body>
     </html>
   );

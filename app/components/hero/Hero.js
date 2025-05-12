@@ -72,5 +72,6 @@ export default function Hero({ title, subtitle }) {
       </div>
 
     </section>
+    
   )
 }
