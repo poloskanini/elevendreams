@@ -15,6 +15,9 @@ module.exports = {
         background: "var(--background)",
         foreground: "var(--foreground)",
       },
+      fontFamily: {
+        adelia: ['Adelia', 'cursive'],
+      },
     },
   },
   plugins: [],

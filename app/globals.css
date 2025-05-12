@@ -9,6 +9,15 @@
   font-style: normal;
 }
 
+@font-face {
+  font-family: "Adelia";
+  src: url("/fonts/adelia.woff2") format("woff2"),
+      url("/fonts/adelia.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
 *,
 *::before,
 *::after {
