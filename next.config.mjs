@@ -1,7 +1,13 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   images: {
-    domains: ['linkaband.com'], // ← autorise les images de ce domaine
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'linkaband.com',
+        pathname: '/**', // ← accepte tous les chemins
+      },
+    ],
   },
 };
 

@@ -44,4 +44,75 @@
   background: linear-gradient(to bottom, rgba(0,0,0,0) 0%, #000 100%);
   pointer-events: none;
   }
+
+  .stars {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    overflow: hidden;
+  }
+  
+  .star {
+    position: absolute;
+    background: rgba(255, 255, 255, 1); // ← diminue ici
+    border-radius: 50%;
+    animation: twinkle 4s ease-in-out infinite;
+    box-shadow: 0 0 3px 1px rgba(255, 255, 255, 0.3); // ← joue ici aussi
+  }
+  
+  
+  @keyframes twinkle {
+    0%, 100% {
+      transform: scale(1);
+      opacity: 0.2;
+    }
+    50% {
+      transform: scale(1.4);
+      opacity: 1;
+    }
+  }
+  
+  .shootingStar {
+    position: absolute;
+    width: 2px;
+    height: 2px;
+    background: white;
+    box-shadow: 0 0 20px 5px white;
+    opacity: 0.95;
+    z-index: 2; // ← assure-toi qu'il passe devant le fond
+  }
+  
+  .left {
+    left: -10%;
+    animation: shootLeft 1.2s ease-out forwards;
+  }
+  
+  .right {
+    left: 110%;
+    animation: shootRight 1.2s ease-out forwards;
+  }
+  
+  @keyframes shootLeft {
+    0% {
+      transform: translateX(0) translateY(0) scale(1);
+      opacity: 1;
+    }
+    100% {
+      transform: translateX(120vw) translateY(10vh) scale(0.8);
+      opacity: 0;
+    }
+  }
+  
+  @keyframes shootRight {
+    0% {
+      transform: translateX(0) translateY(0) scale(1);
+      opacity: 1;
+    }
+    100% {
+      transform: translateX(-120vw) translateY(10vh) scale(0.8);
+      opacity: 0;
+    }
+  }
+  
 }

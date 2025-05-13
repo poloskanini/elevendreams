@@ -2,30 +2,23 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { useState, useEffect } from "react";
 import { useRouter, usePathname } from "next/navigation";
-import { FiMenu, FiArrowRight } from "react-icons/fi";
 import Link from "next/link";
+import { FiArrowRight } from "react-icons/fi";
+
 import styles from './flipnav.module.scss'
 
-
 const FlipNavWrapper = () => {
-
   const [showNav, setShowNav] = useState(false);
   const pathname = usePathname();
 
   useEffect(() => {
-
     if (pathname === "/contact") {
       setShowNav(true);
-
       return;
     }
 
     const handleScroll = () => {
-      if (window.scrollY > 80) {
-        setShowNav(true);
-      } else {
-        setShowNav(false);
-      }
+      setShowNav(window.scrollY > 80);
     };
 
     window.addEventListener("scroll", handleScroll);
@@ -33,7 +26,6 @@ const FlipNavWrapper = () => {
   }, [pathname]);
 
   return (
-
     <AnimatePresence>
       {showNav && (
         <motion.div
@@ -41,7 +33,7 @@ const FlipNavWrapper = () => {
           animate={{ y: 0, opacity: 1 }}
           exit={{ y: -100, opacity: 0 }}
           transition={{ duration: 0.4, ease: "easeOut" }}
-          className={`fixed top-0 left-0 w-full z-50 bg-[#083643] bg-opacity-90 shadow-md ${styles.flipNavHeader}`}
+          className={`fixed top-0 left-0 w-full z-50 bg-[#083643] shadow-md ${styles.flipNavHeader}`}
         >
           <div className={`${styles.flipNavHeader}`}>
             <FlipNav />
@@ -49,89 +41,65 @@ const FlipNavWrapper = () => {
         </motion.div>
       )}
     </AnimatePresence>
-    
-    // <div className={`${styles.flipNavHeader}`}>
-    //   <FlipNav />
-    //   <div />
-    // </div>
   );
 };
 
 const FlipNav = () => {
   const [isOpen, setIsOpen] = useState(false);
   return (
-    <nav className="p-4  flex items-center justify-between relative w-full">
-      <NavLeft setIsOpen={setIsOpen} />
+    <nav className="p-4 flex items-center justify-between relative w-full">
+      <div className="flex items-center gap-6">
+        <button
+          className="group lg:hidden relative w-[50px] h-[50px]"
+          onClick={() => setIsOpen(!isOpen)}
+        >
+          <div className="relative flex overflow-hidden items-center justify-center rounded-full w-[50px] h-[50px] transform transition-all duration-200">
+            <div className="flex flex-col justify-between items-end w-[30px] h-[16px] transform transition-all duration-300 origin-center overflow-hidden">
+              <div
+                className={`bg-white h-[2px] w-7 transform transition-all duration-300 origin-left ${
+                  isOpen ? "rotate-[42deg]" : ""
+                }`}
+              ></div>
+              <div
+                className={`bg-white h-[2px] w-1/2 rounded transform transition-all duration-300 ${
+                  isOpen ? "-translate-x-10" : ""
+                }`}
+              ></div>
+              <div
+                className={`bg-white h-[2px] w-7 transform transition-all duration-300 origin-left ${
+                  isOpen ? "-rotate-[42deg]" : ""
+                }`}
+              ></div>
+            </div>
+          </div>
+        </button>
 
-      <NavMenu isOpen={isOpen} setIsOpen={setIsOpen}/>
+        <Link href="/">
+          <h1 className={`${styles.headerTitle}`}>Eleven Dreams</h1>
+        </Link>
+
+        <NavLink text="Bio" href="#bio" />
+        <NavLink text="Galerie" href="#galerie" />
+        <NavLink text="Contact" href="/contact" />
+      </div>
+
+      <NavMenu isOpen={isOpen} setIsOpen={setIsOpen} />
     </nav>
   );
 };
 
-const Logo = () => {
-  // Temp logo from https://logoipsum.com/
-  return (
-    <svg
-      width="50"
-      height="39"
-      viewBox="0 0 50 39"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-      className="fill-white"
-    >
-      <path
-        d="M16.4992 2H37.5808L22.0816 24.9729H1L16.4992 2Z"
-        stopColor="#000000"
-      ></path>
-      <path
-        d="M17.4224 27.102L11.4192 36H33.5008L49 13.0271H32.7024L23.2064 27.102H17.4224Z"
-        stopColor="#000000"
-      ></path>
-    </svg>
-  );
-};
-
-const NavLeft = ({ setIsOpen }) => {
-  return (
-    <div className="flex items-center gap-6">
-      <motion.button
-        whileHover={{ scale: 1.05 }}
-        whileTap={{ scale: 0.95 }}
-        className="block lg:hidden text-white text-2xl"
-        onClick={() => setIsOpen((pv) => !pv)}
-      >
-        <FiMenu />
-      </motion.button>
-
-      <Link href="/">
-        <h1 className={`${styles.headerTitle}`}>Eleven Dreams</h1>
-      </Link>
-
-      {/* <Logo /> */}
-      <NavLink text="Bio" href="#bio"/>
-      <NavLink text="Galerie" href="#galerie"/>
-      <NavLink text="Contact" href="/contact"/>
-    </div>
-  );
-};
-
 const NavLink = ({ text, href }) => {
-
   const router = useRouter();
   const pathname = usePathname();
 
   const handleClick = (e) => {
-    if (!href.startsWith("#")) return; // liens normaux, pas d’ancre
-
+    if (!href.startsWith("#")) return;
     e.preventDefault();
-
     const target = href.replace("#", "");
 
     if (pathname !== "/") {
-      // On change de page avec un hash
       router.push("/" + href);
     } else {
-      // On est déjà sur / → scroll vers l’ancre
       const el = document.getElementById(target);
       if (el) el.scrollIntoView({ behavior: "smooth" });
     }
@@ -146,32 +114,9 @@ const NavLink = ({ text, href }) => {
     >
       <motion.div whileHover={{ y: -30 }}>
         <span className="flex items-center h-[30px] text-white">{text}</span>
-        <span className="flex items-center h-[30px] text-[#6bb3cb]">
-          {text}
-        </span>
+        <span className="flex items-center h-[30px] text-[#6bb3cb]">{text}</span>
       </motion.div>
     </Link>
-  );
-};
-
-const NavRight = () => {
-  return (
-    <div className="flex items-center gap-4">
-      <motion.button
-        whileHover={{ scale: 1.05 }}
-        whileTap={{ scale: 0.95 }}
-        className="px-4 py-2 bg-gradient-to-r from-violet-600 to-indigo-600 bg-clip-text text-transparent font-medium rounded-md whitespace-nowrap"
-      >
-        Sign in
-      </motion.button>
-      <motion.button
-        whileHover={{ scale: 1.05 }}
-        whileTap={{ scale: 0.95 }}
-        className="px-4 py-2 bg-gradient-to-r from-violet-600 to-indigo-600 text-white font-medium rounded-md whitespace-nowrap"
-      >
-        Sign up
-      </motion.button>
-    </div>
   );
 };
 
@@ -183,26 +128,24 @@ const NavMenu = ({ isOpen, setIsOpen }) => {
       animate={isOpen ? "open" : "closed"}
       className="absolute p-4 bg-[#083643] shadow-lg left-0 right-0 top-full origin-top flex flex-col gap-4"
     >
-      <MenuLink text="Bio" href="#bio" setIsOpen={setIsOpen}/>
-      <MenuLink text="Galerie" href="#galerie" setIsOpen={setIsOpen}/>
-      <MenuLink text="Contact" href="/contact" setIsOpen={setIsOpen}/>
+      <MenuLink text="Bio" href="#bio" setIsOpen={setIsOpen} />
+      <MenuLink text="Galerie" href="#galerie" setIsOpen={setIsOpen} />
+      <MenuLink text="Contact" href="/contact" setIsOpen={setIsOpen} />
     </motion.div>
   );
 };
 
 const MenuLink = ({ text, href, setIsOpen }) => {
-
   const router = useRouter();
   const pathname = usePathname();
 
   const handleClick = (e) => {
     if (!href.startsWith("#")) {
-      setIsOpen(false); // Fermer même pour lien classique
+      setIsOpen(false);
       return;
-    };
+    }
 
     e.preventDefault();
-
     const target = href.replace("#", "");
 
     if (pathname !== "/") {
@@ -212,8 +155,7 @@ const MenuLink = ({ text, href, setIsOpen }) => {
       if (el) el.scrollIntoView({ behavior: "smooth" });
     }
 
-    setIsOpen(false); // Fermer après le scroll
-
+    setIsOpen(false);
   };
 
   return (
@@ -229,9 +171,7 @@ const MenuLink = ({ text, href, setIsOpen }) => {
       </motion.span>
       <motion.div whileHover={{ y: -30 }}>
         <span className="flex items-center h-[30px] text-white">{text}</span>
-        <span className="flex items-center h-[30px] text-[#6bb3cb]">
-          {text}
-        </span>
+        <span className="flex items-center h-[30px] text-[#6bb3cb]">{text}</span>
       </motion.div>
     </motion.a>
   );

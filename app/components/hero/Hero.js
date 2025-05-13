@@ -1,6 +1,9 @@
+"use client"
+
 import styles from './hero.module.scss'
 import Link from 'next/link'
 import { CiMail } from "react-icons/ci";
+import { useEffect, useState } from 'react';
 
 const navigation = {
   social: [
@@ -54,24 +57,113 @@ const navigation = {
 }
 
 export default function Hero({ title, subtitle }) {
+  const [stars, setStars] = useState([]);
+  const [starsBack, setStarsBack] = useState([]);
+  const [shootingStars, setShootingStars] = useState([]);
+  const [scrollY, setScrollY] = useState(0);
+
+  useEffect(() => {
+    const handleScroll = () => setScrollY(window.scrollY);
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  useEffect(() => {
+    const generatedStars = Array.from({ length: 150 }).map((_, i) => ({
+      id: i,
+      top: Math.random() * 50,
+      left: Math.random() * 100,
+      size: Math.random() * 2 + 1,
+      delay: Math.random() * 5,
+      duration: Math.random() * 4 + 2,
+      opacity: Math.random() * 0.2 + 0.05,
+    }));
+    setStars(generatedStars);
+
+    const backgroundStars = Array.from({ length: 100 }).map((_, i) => ({
+      id: i,
+      top: Math.random() * 50,
+      left: Math.random() * 100,
+      size: Math.random() * 1.5 + 0.5,
+      delay: Math.random() * 5,
+      duration: Math.random() * 6 + 3,
+      opacity: Math.random() * 0.1 + 0.02,
+    }));
+    setStarsBack(backgroundStars);
+
+    const interval = setInterval(() => {
+      const direction = Math.random() > 0.5 ? 'left' : 'right';
+      setShootingStars([{ id: Date.now(), top: Math.random() * 50, direction }]);
+      setTimeout(() => setShootingStars([]), 1200);
+    }, 6000);
+
+    return () => clearInterval(interval);
+  }, []);
+
   return (
     <section className={styles.container}>
       <div className={styles.content}>
-
         <div className="socialsWrapper">
           <div className="flex gap-x-6 bg-black bg-opacity-40 p-1 rounded-xl">
             {navigation.social.map((item) => (
-              <Link key={item.name} href={item.href} target="_blank" className="group relative p-3 text-gray-600 hover:text-gray-800 transition duration-300">
+              <Link
+                key={item.name}
+                href={item.href}
+                target="_blank"
+                className="group relative p-3 text-gray-600 hover:text-gray-800 transition duration-300"
+              >
                 <span className="sr-only">{item.name}</span>
-                <item.icon aria-hidden="true" className="h-5 w-5 sm:h-7 sm:w-7 group-hover:scale-125 group-hover:text-gray-400 transition-transform duration-300" />
+                <item.icon
+                  aria-hidden="true"
+                  className="h-5 w-5 sm:h-7 sm:w-7 group-hover:scale-125 group-hover:text-gray-400 transition-transform duration-300"
+                />
               </Link>
             ))}
           </div>
         </div>
-
       </div>
 
+      <div className={styles.stars}>
+        {starsBack.map((s) => (
+          <span
+            key={`b-${s.id}`}
+            className={styles.star}
+            style={{
+              top: `${s.top}%`,
+              left: `${s.left}%`,
+              width: `${s.size}px`,
+              height: `${s.size}px`,
+              opacity: s.opacity,
+              animationDelay: `${s.delay}s`,
+              animationDuration: `${s.duration}s`,
+              transform: `translateY(${scrollY * 0.01}px)`
+            }}
+          />
+        ))}
+        {stars.map((s) => (
+          <span
+            key={s.id}
+            className={styles.star}
+            style={{
+              top: `${s.top}%`,
+              left: `${s.left}%`,
+              width: `${s.size}px`,
+              height: `${s.size}px`,
+              opacity: s.opacity,
+              animationDelay: `${s.delay}s`,
+              animationDuration: `${s.duration}s`,
+              transform: `translateY(${scrollY * 0.02}px)`
+            }}
+          />
+        ))}
+        {shootingStars.map((s) => (
+          <span
+            key={s.id}
+            className={styles.shootingStar + ' ' + styles[s.direction]}
+            style={{ top: `${s.top}%` }}
+          />
+        ))}
+      </div>
     </section>
-    
-  )
+  );
 }
