@@ -9,9 +9,6 @@ const Example = () => {
       <div className="bg-neutral-900" id="galerie">
         <HorizontalScrollCarousel />
       </div>
-      <div className="bg-neutral-900 text-center h-screen text-2xl">
-        <p>Site en construction...</p>
-      </div>
     </>
     
   );
