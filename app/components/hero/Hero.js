@@ -119,46 +119,26 @@ export default function Hero({ title, subtitle }) {
       />
     )}
 
-<div className={styles.content}>
-  <div className="socialsWrapper">
-    <motion.div
-      className="flex gap-x-6 bg-black bg-opacity-40 px-8 rounded-xl"
-      initial="hidden"
-      animate="visible"
-      variants={{
-        hidden: {},
-        visible: {
-          transition: {
-            staggerChildren: 0.2,
-          },
-        },
-      }}
-    >
-      {navigation.social.map((item) => (
-        <motion.div
-          key={item.name}
-          variants={{
-            hidden: { opacity: 0, y: 10 },
-            visible: { opacity: 1, y: 0, transition: { duration: 0.4 } },
-          }}
-        >
-          <Link
-            href={item.href}
-            target="_blank"
-            className="group relative px-8 py-3 text-gray-600 hover:text-gray-800 transition duration-300"
-          >
-            <span className="sr-only">{item.name}</span>
-            <item.icon
-              aria-hidden="true"
-              className="h-5 w-5 sm:h-7 sm:w-7 group-hover:scale-125 group-hover:text-gray-400 transition-transform duration-300"
-            />
-          </Link>
-        </motion.div>
-      ))}
-    </motion.div>
-  </div>
-</div>
-
+      <div className={styles.content}>
+        <div className="socialsWrapper">
+          <div className="flex gap-x-6 bg-black bg-opacity-40 p-1 rounded-xl">
+            {navigation.social.map((item) => (
+              <Link
+                key={item.name}
+                href={item.href}
+                target="_blank"
+                className="group relative p-3 text-gray-600 hover:text-gray-800 transition duration-300"
+              >
+                <span className="sr-only">{item.name}</span>
+                <item.icon
+                  aria-hidden="true"
+                  className="h-5 w-5 sm:h-7 sm:w-7 group-hover:scale-125 group-hover:text-gray-400 transition-transform duration-300"
+                />
+              </Link>
+            ))}
+          </div>
+        </div>
+      </div>
 
       <div className={styles.stars}>
         {starsBack.map((s) => (
