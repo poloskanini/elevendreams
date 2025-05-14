@@ -67,15 +67,15 @@ export default function Banner() {
 
     <div className="innerBiography p-5 leading-8 space-y-10">
       <Paragraph>
-        <span className={`${styles.bandName} font-black`}>Eleven Dreams</span> incarne un Rock-Pop intense et authentique, où les sonorités acoustiques, électriques et symphoniques s'entremêlent pour offrir une musique d'énergie et d'émotions.
+        <span className={`${styles.bandName} font-black`}>Eleven Dreams</span> incarne un Rock-Pop intense et authentique, où les sonorités acoustiques, électriques et symphoniques s&apos;entremêlent pour offrir une musique d&apos;énergie et d&apos;émotions.
       </Paragraph>
 
       <Paragraph delay={0.3}>
-        Récompensé par la nomination de "Grand Lauréat" lors du Tremplin Fallenfest (Saison 6), <span className={`${styles.bandName} font-black`}>Eleven Dreams</span> s'est alors fait remarquer avec son 1er E.P "Going On" enregistré aux légendaires <i>Capitol Studios</i> et salué par la critique parisienne. Aujourd'hui, ils se consacrent pleinement à la création de leur 1er album, une étape cruciale dans leur parcours.
+        Récompensé par la nomination de &quot;Grand Lauréat	&quot; lors du Tremplin Fallenfest (Saison 6), <span className={`${styles.bandName} font-black`}>Eleven Dreams</span> s&apos;est alors fait remarquer avec son 1er E.P &quot;Going On&quot; enregistré aux légendaires <i>Capitol Studios</i> et salué par la critique parisienne. Aujourd&apos;hui, ils se consacrent pleinement à la création de leur 1er album, une étape cruciale dans leur parcours.
       </Paragraph>
 
       <Paragraph delay={0.6}>
-        Sur scène, les quatre musiciens d'<span className={`${styles.bandName} font-black`}>Eleven Dreams</span> (Nicolas BARTHÈS - Gabriel PONS - Laurent BERGEON - Arnaud LEVIOT) livrent des performances captivantes, oscillant entre intensité et envolées planantes, dans un univers qui rappelle souvent Pink Floyd, Coldplay ou encore Muse.
+        Sur scène, les quatre musiciens d&apos;<span className={`${styles.bandName} font-black`}>Eleven Dreams</span> (Nicolas BARTHÈS - Gabriel PONS - Laurent BERGEON - Arnaud LEVIOT) livrent des performances captivantes, oscillant entre intensité et envolées planantes, dans un univers qui rappelle souvent Pink Floyd, Coldplay ou encore Muse.
       </Paragraph>
 
       <Paragraph delay={0.9}>
