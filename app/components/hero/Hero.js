@@ -113,32 +113,40 @@ export default function Hero({ title, subtitle }) {
       <motion.div
         initial={{ opacity: 1 }}
         animate={{ opacity: 0 }}
-        transition={{ duration: 1.2, ease: "easeOut" }}
+        transition={{ duration: 1.5, ease: "easeOut" }}
         className="fixed inset-0 bg-black z-50 pointer-events-none"
         onAnimationComplete={() => setShowOverlay(false)}
       />
     )}
 
-      <div className={styles.content}>
-        <div className="socialsWrapper">
-          <div className="flex gap-x-6 bg-black bg-opacity-40 p-1 rounded-xl">
-            {navigation.social.map((item) => (
-              <Link
-                key={item.name}
-                href={item.href}
-                target="_blank"
-                className="group relative p-3 text-gray-600 hover:text-gray-800 transition duration-300"
-              >
-                <span className="sr-only">{item.name}</span>
-                <item.icon
-                  aria-hidden="true"
-                  className="h-5 w-5 sm:h-7 sm:w-7 group-hover:scale-125 group-hover:text-gray-400 transition-transform duration-300"
-                />
-              </Link>
-            ))}
-          </div>
-        </div>
-      </div>
+<div className={styles.content}>
+  <div className="socialsWrapper">
+    <div className="flex gap-x-6 bg-black bg-opacity-40 p-1 rounded-xl">
+      {navigation.social.map((item, i) => (
+        <Link
+          key={item.name}
+          href={item.href}
+          target="_blank"
+          className="group relative p-3 flex items-center justify-center"
+        >
+          <span className="sr-only">{item.name}</span>
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 1, delay: 0.5 + i * 0.1 }}
+            className="h-7 w-7 sm:h-8 sm:w-8" // Taille FIXE pour éviter tout changement de layout
+          >
+            <item.icon
+              aria-hidden="true"
+              className="h-full w-full group-hover:scale-125 group-hover:text-gray-400 transition-transform duration-300"
+            />
+          </motion.div>
+        </Link>
+      ))}
+    </div>
+  </div>
+</div>
+
 
       <div className={styles.stars}>
         {starsBack.map((s) => (
