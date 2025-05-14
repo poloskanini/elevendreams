@@ -1,7 +1,5 @@
 import localFont from "next/font/local";
 import "./globals.css";
-import Header from "./components/header/Header.js";
-import FlipNavWrapper from "./components/flipNav/FlipNav";
 import Image from "next/image";
 
 const geistSans = localFont({
@@ -28,7 +26,7 @@ export const metadata = {
     url: "https://www.elevendreams.fr",
     images: [
       {
-        url: "https://www.elevendreams.fr/images/albumcover.webp",
+        url: "https://www.elevendreams.fr/images/Meta-Website-image-ElevenDreams.webp",
         width: 1200,
         height: 630,
         alt: "Eleven Dreams",
@@ -39,7 +37,7 @@ export const metadata = {
     card: "summary_large_image",
     title: "Eleven Dreams",
     description: "Eleven Dreams incarne un Rock-Pop intense et authentique, où acoustique, électrique et symphonique s’entrelacent pour une musique vibrante d’énergie et d’émotions.",
-    images: ["https://www.elevendreams.fr/images/albumcover.webp"],
+    images: ["https://www.elevendreams.fr/images/Meta-Website-image-ElevenDreams.webp"],
   },
 };
 
@@ -50,7 +48,7 @@ export default function RootLayout({ children }) {
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         {children}
-        
+
         {/* Badge Linkaband */}
         <a href='https://linkaband.com/eleven-dreams?utm_source=badge&utm_campaign=182769' target='_blank'>
           
