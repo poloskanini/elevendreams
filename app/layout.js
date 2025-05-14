@@ -22,7 +22,7 @@ export const metadata = {
     locale: "fr_FR",
     site_name: "Eleven Dreams",
     title: "Eleven Dreams",
-    description: "Eleven Dreams incarne un Rock-Pop intense et authentique, où acoustique, électrique et symphonique s’entrelacent pour une musique vibrante d’énergie et d’émotions.",
+    description: "Eleven Dreams incarne un Rock-Pop intense et authentique...",
     url: "https://www.elevendreams.fr",
     images: [
       {
@@ -36,10 +36,21 @@ export const metadata = {
   twitter: {
     card: "summary_large_image",
     title: "Eleven Dreams",
-    description: "Eleven Dreams incarne un Rock-Pop intense et authentique, où acoustique, électrique et symphonique s’entrelacent pour une musique vibrante d’énergie et d’émotions.",
+    description: "Eleven Dreams incarne un Rock-Pop intense et authentique...",
     images: ["https://www.elevendreams.fr/images/Meta-Website-image-ElevenDreams.webp"],
   },
+  icons: {
+    icon: [
+      { url: "/favicon.ico", sizes: "any", type: "image/x-icon" },
+      { url: "/favicon.svg", type: "image/svg+xml" },
+    ],
+    apple: [
+      { url: "/apple-touch-icon.png", sizes: "180x180" },
+    ]
+  },
+  manifest: "/site.webmanifest",
 };
+
 
 export default function RootLayout({ children }) {
   return (
