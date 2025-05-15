@@ -49,7 +49,7 @@ const AnimatedHeading = ({ children }) => {
 
 export default function Banner() {
   return (
-    <div className="relative font-sans before:absolute before:w-full before:h-full before:inset-0 before:bg-neutral-900 before:opacity-60 before:z-10" id="bio">
+    <div className="relative font-sans before:absolute before:w-full before:h-full before:inset-0 before:bg-neutral-900 before:opacity-60 before:z-10" id="about" aria-label="À propos">
       <video
         className="absolute inset-0 w-full h-full object-cover"
         autoPlay

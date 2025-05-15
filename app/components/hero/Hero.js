@@ -119,34 +119,33 @@ export default function Hero({ title, subtitle }) {
       />
     )}
 
-<div className={styles.content}>
-  <div className="socialsWrapper">
-    <div className="flex gap-x-6 bg-black bg-opacity-40 p-1 rounded-xl">
-      {navigation.social.map((item, i) => (
-        <Link
-          key={item.name}
-          href={item.href}
-          target="_blank"
-          className="group relative p-3 flex items-center justify-center"
-        >
-          <span className="sr-only">{item.name}</span>
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 1, delay: 0.5 + i * 0.1 }}
-            className="h-7 w-7 sm:h-8 sm:w-8" // Taille FIXE pour éviter tout changement de layout
-          >
-            <item.icon
-              aria-hidden="true"
-              className="h-full w-full group-hover:scale-125 group-hover:text-gray-400 transition-transform duration-300"
-            />
-          </motion.div>
-        </Link>
-      ))}
-    </div>
-  </div>
-</div>
-
+      <div className={styles.content}>
+        <div className="socialsWrapper">
+          <div className="flex gap-x-6 bg-black bg-opacity-40 p-1 rounded-xl">
+            {navigation.social.map((item, i) => (
+              <Link
+                key={item.name}
+                href={item.href}
+                target="_blank"
+                className="group relative p-3 flex items-center justify-center"
+              >
+                <span className="sr-only">{item.name}</span>
+                <motion.div
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ duration: 1, delay: 0.5 + i * 0.1 }}
+                  className="h-7 w-7 sm:h-8 sm:w-8" // Taille FIXE pour éviter tout changement de layout
+                >
+                  <item.icon
+                    aria-hidden="true"
+                    className="h-full w-full group-hover:scale-125 group-hover:text-gray-400 transition-transform duration-300"
+                  />
+                </motion.div>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </div>
 
       <div className={styles.stars}>
         {starsBack.map((s) => (

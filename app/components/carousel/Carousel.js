@@ -9,6 +9,9 @@ const Example = () => {
       <div className="bg-neutral-900" id="galerie">
         <HorizontalScrollCarousel />
       </div>
+      {/* <div className="bg-neutral-900 text-center h-screen text-2xl">
+        <p>Site en construction...</p>
+      </div> */}
     </>
     
   );
@@ -20,7 +23,7 @@ const HorizontalScrollCarousel = () => {
     target: targetRef,
   });
 
-  const x = useTransform(scrollYProgress, [0, 1], ["1%", "-95%"]);
+  const x = useTransform(scrollYProgress, [0, 1], ["1%", "-80%"]);
 
   return (
     <>
@@ -41,7 +44,7 @@ const Card = ({ card }) => {
   return (
     <div
       key={card.id}
-      className="group relative h-[300px] w-[350px] sm:h-[500px] sm:w-[550px] overflow-hidden bg-neutral-200"
+      className="group relative h-[500px] w-[550px] sm:h-[700px] sm:w-[750px] overflow-hidden bg-neutral-200"
     >
       <div
         style={{
@@ -49,7 +52,7 @@ const Card = ({ card }) => {
           backgroundSize: "cover",
           backgroundPosition: "center",
         }}
-        className="absolute inset-0 z-0 transition-transform duration-300 group-hover:scale-110"
+        className="absolute inset-0 z-0 transition-transform duration-300"
       ></div>
       <div className="absolute inset-0 z-10 grid place-content-center">
         {/* <p className="bg-gradient-to-br from-white/20 to-white/0 p-8 text-6xl font-black uppercase text-white backdrop-blur-lg">

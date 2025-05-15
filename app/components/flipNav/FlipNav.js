@@ -78,7 +78,7 @@ const FlipNav = () => {
           <h1 className={`${styles.headerTitle}`}>Eleven Dreams</h1>
         </Link>
 
-        <NavLink text="Bio" href="#bio" />
+        <NavLink text="Bio" href="#about" />
         <NavLink text="Galerie" href="#galerie" />
         <NavLink text="Contact" href="/contact" />
       </div>
@@ -128,7 +128,7 @@ const NavMenu = ({ isOpen, setIsOpen }) => {
       animate={isOpen ? "open" : "closed"}
       className="absolute p-4 bg-[#083643] shadow-lg left-0 right-0 top-full origin-top flex flex-col gap-4"
     >
-      <MenuLink text="Bio" href="#bio" setIsOpen={setIsOpen} />
+      <MenuLink text="Bio" href="#about" setIsOpen={setIsOpen} />
       <MenuLink text="Galerie" href="#galerie" setIsOpen={setIsOpen} />
       <MenuLink text="Contact" href="/contact" setIsOpen={setIsOpen} />
     </motion.div>

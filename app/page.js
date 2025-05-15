@@ -4,6 +4,7 @@ import Banner from './components/banner/Banner.js';
 import Carousel from './components/carousel/Carousel.js';
 import Slider from './components/slider/Slider.jsx'
 import FuzzyOverlayExample from "./components/fuzzyoverlay/fuzzyOverlay";
+import MusicSection from "./components/musicSection/MusicSection";
 
 export default function Home() {
   return (
@@ -19,6 +20,7 @@ export default function Home() {
       <Banner />
       <Slider></Slider>
       <Carousel />
+      <MusicSection />
       <FuzzyOverlayExample/>
     </>
   );
