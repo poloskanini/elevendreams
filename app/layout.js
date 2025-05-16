@@ -37,7 +37,7 @@ export const metadata = {
   twitter: {
     card: "summary_large_image",
     title: "Eleven Dreams",
-    description: "Eleven Dreams incarne un Rock-Pop intense et authentique...",
+    description: "Eleven Dreams incarne un Rock-Pop intense et authentique",
     images: ["https://www.elevendreams.fr/images/Meta-Website-image-ElevenDreams.webp"],
   },
   icons: {
