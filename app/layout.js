@@ -1,7 +1,6 @@
 import localFont from "next/font/local";
 import "./globals.css";
 import Image from "next/image";
-import JsonLdMusicGroup from "./components/JsonLD/JsonLD";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -54,10 +53,10 @@ export const metadata = {
 
 
 export default function RootLayout({ children }) {
+  
   return (
     <html lang="en">
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
-        <JsonLdMusicGroup />
         {children}
 
         {/* Badge Linkaband */}
