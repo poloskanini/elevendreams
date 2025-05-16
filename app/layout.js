@@ -1,7 +1,7 @@
 import localFont from "next/font/local";
 import "./globals.css";
 import Image from "next/image";
-import JsonLdMusicGroup from "./components/JsonLD";
+import JsonLdMusicGroup from "./components/JsonLD/JsonLD";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
