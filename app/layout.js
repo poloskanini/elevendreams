@@ -1,6 +1,7 @@
 import localFont from "next/font/local";
 import "./globals.css";
 import Image from "next/image";
+import JsonLdMusicGroup from "./components/JsonLD";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -55,15 +56,14 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
+      <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
+        <JsonLdMusicGroup />
         {children}
 
         {/* Badge Linkaband */}
         <a href='https://linkaband.com/eleven-dreams?utm_source=badge&utm_campaign=182769' target='_blank'>
           
-          <Image src='https://linkaband.com/assets/images/validation/reservation-noir.png' alt='Eleven-dreams' width={130} height={130}/></a>
+          <Image src='https://linkaband.com/assets/images/validation/reservation-noir.png' alt='Eleven-dreams' width={50} height={50}/></a>
         
         {/* <Header
         headerTitle={"Eleven Dreams"}

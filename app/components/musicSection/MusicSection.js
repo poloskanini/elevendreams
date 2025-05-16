@@ -2,6 +2,15 @@
 
 import { motion } from "framer-motion";
 
+const clips = [
+  { id: "n-tkKQjeCjk", title: "Clip 1" },
+  { id: "NfmV1vMTJ5I", title: "Clip 6" },
+  { id: "Y8ccuvpIJYw", title: "Clip 3" },
+  { id: "XOWHtNdXSow", title: "Clip 4" },
+  { id: "0zXfcZKgynM", title: "Clip 5" },
+  { id: "1gbR8UbnX_E", title: "Clip 2" },
+];
+
 export default function MusicSection() {
   return (
     <section id="musique" className="text-white py-24 px-6 lg:px-20">
@@ -25,7 +34,7 @@ export default function MusicSection() {
 
         {/* Clips en grille */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 mb-20">
-          {["n-tkKQjeCjk?", "1gbR8UbnX_E", "Y8ccuvpIJYw", "XOWHtNdXSow", "0zXfcZKgynM", "NfmV1vMTJ5I"].map((id) => (
+          {clips.map(({id, title}) => (
             <motion.div
               key={id}
               whileHover={{ scale: 1.03 }}
@@ -35,7 +44,7 @@ export default function MusicSection() {
               <iframe
                 className="w-full h-full"
                 src={`https://www.youtube.com/embed/${id}`}
-                title="Clip vidéo"
+                title={title}
                 frameBorder="0"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                 allowFullScreen
@@ -57,5 +66,5 @@ export default function MusicSection() {
         </div> */}
       </div>
     </section>
-  );
+  );  
 }
