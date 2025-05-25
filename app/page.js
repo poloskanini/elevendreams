@@ -5,6 +5,7 @@ import Carousel from './components/carousel/Carousel.js';
 import Slider from './components/slider/Slider.jsx'
 import FuzzyOverlayExample from "./components/fuzzyoverlay/fuzzyOverlay";
 import MusicSection from "./components/musicSection/MusicSection";
+import Footer from "./components/footer/Footer";
 
 export default function Home() {
   return (
@@ -22,6 +23,7 @@ export default function Home() {
       <Carousel />
       <MusicSection />
       <FuzzyOverlayExample/>
+      <Footer />
     </>
   );
 }

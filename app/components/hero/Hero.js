@@ -126,7 +126,7 @@ export default function Hero({ title, subtitle }) {
               <Link
                 key={item.name}
                 href={item.href}
-                target="_blank"
+                target={item.href.startsWith('/') ? undefined : "_blank"}
                 className="group relative p-3 flex items-center justify-center"
               >
                 <span className="sr-only">{item.name}</span>
@@ -138,7 +138,7 @@ export default function Hero({ title, subtitle }) {
                 >
                   <item.icon
                     aria-hidden="true"
-                    className="h-full w-full group-hover:scale-125 group-hover:text-gray-400 transition-transform duration-300"
+                    className="h-full w-full group-hover:scale-110 group-hover:text-gray-400 transition-transform duration-300"
                   />
                 </motion.div>
               </Link>

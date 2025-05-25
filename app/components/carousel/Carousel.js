@@ -19,11 +19,11 @@ const Example = () => {
 
 const HorizontalScrollCarousel = () => {
   const targetRef = useRef(null);
-  const { scrollYProgress } = useScroll({
-    target: targetRef,
-  });
+  const { scrollYProgress } = useScroll();
 
-  const x = useTransform(scrollYProgress, [0, 1], ["1%", "-80%"]);
+
+  const x = useTransform(scrollYProgress, [0.2, 0.8], ["20%", "-120%"]);
+
 
   return (
     <>
@@ -41,19 +41,29 @@ const HorizontalScrollCarousel = () => {
 };
 
 const Card = ({ card }) => {
+  const isFirst = card.id === 1;
+
+  const ImageComponent = isFirst ? "div" : motion.div;
+
   return (
     <div
       key={card.id}
-      className="group relative h-[500px] w-[550px] sm:h-[700px] sm:w-[750px] overflow-hidden bg-neutral-200"
+      className="group relative h-[500px] w-[550px] sm:h-[700px] sm:w-[750px] overflow-hidden"
     >
-      <div
+      <ImageComponent
+        {...(!isFirst && {
+          initial: { opacity: 0 },
+          whileInView: { opacity: 1 },
+          transition: { duration: 1, ease: "easeOut" },
+          viewport: { once: true, amount: 0.3 },
+        })}
         style={{
           backgroundImage: `url(${card.url})`,
           backgroundSize: "cover",
           backgroundPosition: "center",
         }}
-        className="absolute inset-0 z-0 transition-transform duration-300"
-      ></div>
+        className="absolute inset-0 z-0"
+      />
       <div className="absolute inset-0 z-10 grid place-content-center">
         {/* <p className="bg-gradient-to-br from-white/20 to-white/0 p-8 text-6xl font-black uppercase text-white backdrop-blur-lg">
           {card.title}
