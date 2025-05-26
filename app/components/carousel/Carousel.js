@@ -9,40 +9,34 @@ const Example = () => {
       <div className="bg-neutral-900" id="galerie">
         <HorizontalScrollCarousel />
       </div>
-      {/* <div className="bg-neutral-900 text-center h-screen text-2xl">
-        <p>Site en construction...</p>
-      </div> */}
     </>
-    
   );
 };
 
 const HorizontalScrollCarousel = () => {
   const targetRef = useRef(null);
-  const { scrollYProgress } = useScroll();
+  const { scrollYProgress } = useScroll({
+    target: targetRef,
+  });
 
-
-  const x = useTransform(scrollYProgress, [0.2, 0.8], ["20%", "-120%"]);
-
+  // Ajuste l'intervalle de décalage (x) pour mieux correspondre à la taille réduite
+  const x = useTransform(scrollYProgress, [0, 1], ["0%", "-80%"]);
 
   return (
-    <>
-      <section ref={targetRef} className="relative h-[300vh] bg-neutral-900">
-        <div className="sticky top-0 flex h-screen items-center overflow-hidden">
-          <motion.div style={{ x }} className="flex gap-4">
-            {cards.map((card) => {
-              return <Card card={card} key={card.id} />;
-            })}
-          </motion.div>
-        </div>
-      </section>
-    </>
+    <section ref={targetRef} className="relative h-[200vh] bg-neutral-900">
+      <div className="sticky top-0 flex h-screen items-center overflow-hidden">
+        <motion.div style={{ x }} className="flex gap-4">
+          {cards.map((card) => (
+            <Card card={card} key={card.id} />
+          ))}
+        </motion.div>
+      </div>
+    </section>
   );
 };
 
 const Card = ({ card }) => {
   const isFirst = card.id === 1;
-
   const ImageComponent = isFirst ? "div" : motion.div;
 
   return (
@@ -64,11 +58,6 @@ const Card = ({ card }) => {
         }}
         className="absolute inset-0 z-0"
       />
-      <div className="absolute inset-0 z-10 grid place-content-center">
-        {/* <p className="bg-gradient-to-br from-white/20 to-white/0 p-8 text-6xl font-black uppercase text-white backdrop-blur-lg">
-          {card.title}
-        </p> */}
-      </div>
     </div>
   );
 };

@@ -16,11 +16,11 @@ export default function MusicSection() {
     <section id="musique" className="text-white py-24 px-6 lg:px-20">
       <div className="max-w-7xl mx-auto">
         <h3 className="sm:text-3xl text-2xl font-black text-center text-yellow-600 mb-16">
-          MUSIQUE
+          MUSIC
         </h3>
 
         {/* Player audio Spotify */}
-        <div className="mb-20 rounded-xl overflow-hidden shadow-xl">
+        {/* <div className="mb-20 rounded-xl overflow-hidden shadow-xl">
           <iframe
             src="https://open.spotify.com/embed/album/1uSpngQgBBgwRFYS5sOdqI?utm_source=generator"
             width="100%"
@@ -30,7 +30,7 @@ export default function MusicSection() {
             loading="lazy"
             className="rounded-xl"
           ></iframe>
-        </div>
+        </div> */}
 
         {/* Clips en grille */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 mb-20">

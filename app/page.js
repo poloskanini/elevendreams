@@ -2,6 +2,7 @@ import FlipNavWrapper from "./components/flipNav/FlipNav";
 import Hero from './components/hero/Hero.js';
 import Banner from './components/banner/Banner.js';
 import Carousel from './components/carousel/Carousel.js';
+import UpcomingShows from "./components/upcomingShows/UpcomingShows";
 import Slider from './components/slider/Slider.jsx'
 import FuzzyOverlayExample from "./components/fuzzyoverlay/fuzzyOverlay";
 import MusicSection from "./components/musicSection/MusicSection";
@@ -21,8 +22,9 @@ export default function Home() {
       <Banner />
       <Slider></Slider>
       <Carousel />
+      <UpcomingShows />
       <MusicSection />
-      <FuzzyOverlayExample/>
+      {/* <FuzzyOverlayExample/> */}
       <Footer />
     </>
   );
