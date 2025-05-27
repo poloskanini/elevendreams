@@ -9,7 +9,7 @@ export default function UpcomingShows() {
     {
       date: "21 juin 2025",
       location: "ÉTIOLLES MONTE LE SON - 21H",
-      address: "15 RUE ALPHONE DAUDET, 91450 ÉTIOLLES",
+      address: "Maison des Arts Martiaux (plein air), 91450 ÉTIOLLES",
       image: "/images/Concert-Etiolles-Insta-2.png",
       link: "https://fb.me/e/5MQJDnl0G",
     },
