@@ -1,6 +1,7 @@
 import localFont from "next/font/local";
 import "./globals.css";
 import Image from "next/image";
+import { Analytics } from "@vercel/analytics/next"
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -58,6 +59,7 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
         {children}
+        <Analytics />
 
         {/* Badge Linkaband */}
         <a href='https://linkaband.com/eleven-dreams?utm_source=badge&utm_campaign=182769' target='_blank'>
