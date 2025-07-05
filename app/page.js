@@ -21,9 +21,9 @@ export default function Home() {
       />
       <Banner />
       <Slider></Slider>
-      <Carousel />
-      <UpcomingShows />
       <MusicSection />
+      <UpcomingShows />
+      <Carousel />
       {/* <FuzzyOverlayExample/> */}
       <Footer />
     </>

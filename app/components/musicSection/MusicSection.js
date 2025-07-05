@@ -3,17 +3,17 @@
 import { motion } from "framer-motion";
 
 const clips = [
+  { id: "wNzqrac46co", title: "Clip 5" },
+  { id: "8wBJMsSv7Hc", title: "Clip 6" },
   { id: "n-tkKQjeCjk", title: "Clip 1" },
-  { id: "NfmV1vMTJ5I", title: "Clip 6" },
   { id: "Y8ccuvpIJYw", title: "Clip 3" },
   { id: "XOWHtNdXSow", title: "Clip 4" },
-  { id: "0zXfcZKgynM", title: "Clip 5" },
   { id: "1gbR8UbnX_E", title: "Clip 2" },
 ];
 
 export default function MusicSection() {
   return (
-    <section id="musique" className="text-white py-24 px-6 lg:px-20">
+    <section id="music" className="text-white py-24 px-6 lg:px-20">
       <div className="max-w-7xl mx-auto">
         <h3 className="sm:text-3xl text-2xl font-black text-center text-yellow-600 mb-16">
           MUSIC
