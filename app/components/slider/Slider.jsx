@@ -125,6 +125,11 @@ const LogoItemsTop = () => (
       name="LA SCÈNE BASTILLE"
       link="https://badaboum.paris/"
     />
+    <LogoItem
+      imgSrc="/images/Logos Salles/truskel.png"
+      name="LE TRUSKEL"
+      link="https://www.truskel.fr/"
+    />
   </>
 );
 

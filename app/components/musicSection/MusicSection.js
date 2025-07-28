@@ -3,12 +3,12 @@
 import { motion } from "framer-motion";
 
 const clips = [
+  { id: "Gm6IuZFXhNY", title: "Clip 2" },
   { id: "wNzqrac46co", title: "Clip 5" },
   { id: "8wBJMsSv7Hc", title: "Clip 6" },
   { id: "n-tkKQjeCjk", title: "Clip 1" },
   { id: "Y8ccuvpIJYw", title: "Clip 3" },
   { id: "XOWHtNdXSow", title: "Clip 4" },
-  { id: "1gbR8UbnX_E", title: "Clip 2" },
 ];
 
 export default function MusicSection() {

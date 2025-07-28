@@ -5,17 +5,16 @@ import Image from "next/image";
 import Link from "next/link";
 
 export default function UpcomingShows() {
-  const upcoming = [
+  const upcoming = []; // Aucun événement à venir
+
+  const past = [
     {
       date: "26 juillet 2025",
       location: "LE TRUSKEL",
       address: "12 Rue Feydeau, 75002 Paris",
       image: "/images/495513797_1210458367757115_8022579537367684268_n.jpg",
-      link: "",
+      link: "https://fb.me/e/5HOD2uT4g",
     },
-  ];
-
-  const past = [
     {
       date: "21 juin 2025",
       location: "ÉTIOLLES MONTE LE SON - 21H",
@@ -33,9 +32,6 @@ export default function UpcomingShows() {
   const getGoogleMapsLink = (address) =>
     `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(address)}`;
 
-  const { day: nextDay, month: nextMonth, year: nextYear } = parseDate(upcoming[0].date);
-  const { day: lastDay, month: lastMonth, year: lastYear } = parseDate(past[0].date);
-
   return (
     <section className="relative text-white py-24 px-4 lg:px-20 overflow-hidden scroll-mt-48" id="shows">
       {/* Background */}
@@ -50,7 +46,7 @@ export default function UpcomingShows() {
       </div>
 
       <div className="max-w-7xl mx-auto relative z-10">
-        {/* Titre Upcoming */}
+        {/* Titre UPCOMING */}
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -60,40 +56,51 @@ export default function UpcomingShows() {
           UPCOMING <span className="text-yellow-600">EVENTS</span>
         </motion.h2>
 
-        {/* Show en avant */}
-        <div className="grid grid-cols-3 gap-4 border-t border-white/20 mb-4">
-          <div className="flex flex-col justify-center items-start py-3 border-b border-white/20 relative">
-            <p className="text-[100px] sm:text-[160px] leading-none font-extrabold opacity-10">{nextDay}</p>
-            <p className="uppercase tracking-widest text-lg font-semibold">
-              {nextMonth} {nextYear}
-            </p>
+        {/* Contenu Upcoming */}
+        {upcoming.length > 0 ? (
+          <div className="grid grid-cols-3 gap-4 border-t border-white/20 mb-4">
+            {(() => {
+              const { day, month, year } = parseDate(upcoming[0].date);
+              return (
+                <>
+                  <div className="flex flex-col justify-center items-start py-3 border-b border-white/20 relative">
+                    <p className="text-[100px] sm:text-[160px] leading-none font-extrabold opacity-10">{day}</p>
+                    <p className="uppercase tracking-widest text-lg font-semibold">
+                      {month} {year}
+                    </p>
+                  </div>
+                  <div className="py-3 flex flex-col items-start justify-center border-b border-white/20 relative">
+                    {upcoming[0].image && (
+                      <Link href={upcoming[0].link || "#"} target="_blank">
+                        <Image
+                          src={upcoming[0].image}
+                          alt={`Miniature ${upcoming[0].location}`}
+                          width={120}
+                          height={80}
+                          className="rounded shadow-lg mb-2"
+                        />
+                      </Link>
+                    )}
+                    <p>{upcoming[0].location}</p>
+                  </div>
+                  <div className="py-3 flex items-center border-b border-white/20">
+                    <Link
+                      href={getGoogleMapsLink(upcoming[0].address)}
+                      target="_blank"
+                      className="hover:underline"
+                    >
+                      {upcoming[0].address}
+                    </Link>
+                  </div>
+                </>
+              );
+            })()}
           </div>
-          <div className="py-3 flex flex-col items-start justify-center border-b border-white/20 relative">
-            {upcoming[0].image && (
-              <Link href={upcoming[0].link || "#"} target="_blank">
-                <Image
-                  src={upcoming[0].image}
-                  alt={`Miniature ${upcoming[0].location}`}
-                  width={120}
-                  height={80}
-                  className="rounded shadow-lg mb-2"
-                />
-              </Link>
-            )}
-            <p>{upcoming[0].location}</p>
-          </div>
-          <div className="py-3 flex items-center border-b border-white/20">
-            <Link
-              href={getGoogleMapsLink(upcoming[0].address)}
-              target="_blank"
-              className="hover:underline"
-            >
-              {upcoming[0].address}
-            </Link>
-          </div>
-        </div>
+        ) : (
+          <p className="text-center text-gray-300 italic">Aucun événement à venir pour le moment.</p>
+        )}
 
-        {/* Section Last Shows */}
+        {/* PAST SHOWS */}
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -103,37 +110,42 @@ export default function UpcomingShows() {
           PAST <span className="text-yellow-600">SHOWS</span>
         </motion.h2>
 
-        <div className="grid grid-cols-3 gap-4 border-t border-white/20 mb-4">
-          <div className="flex flex-col justify-center items-start py-3 border-b border-white/20 relative">
-            <p className="text-[100px] sm:text-[160px] leading-none font-extrabold opacity-10">{lastDay}</p>
-            <p className="uppercase tracking-widest text-lg font-semibold">
-              {lastMonth} {lastYear}
-            </p>
-          </div>
-          <div className="py-3 flex flex-col items-start justify-center border-b border-white/20 relative">
-            {past[0].image && (
-              <Link href={past[0].link} target="_blank">
-                <Image
-                  src={past[0].image}
-                  alt={`Miniature ${past[0].location}`}
-                  width={120}
-                  height={80}
-                  className="rounded shadow-lg mb-2"
-                />
-              </Link>
-            )}
-            <p>{past[0].location}</p>
-          </div>
-          <div className="py-3 flex items-center border-b border-white/20">
-            <Link
-              href={getGoogleMapsLink(past[0].address)}
-              target="_blank"
-              className="hover:underline"
-            >
-              {past[0].address}
-            </Link>
-          </div>
-        </div>
+        {past.map((show, index) => {
+          const { day, month, year } = parseDate(show.date);
+          return (
+            <div key={index} className="grid grid-cols-3 gap-4 border-t border-white/20 mb-4">
+              <div className="flex flex-col justify-center items-start py-3 border-b border-white/20 relative">
+                <p className="text-[100px] sm:text-[160px] leading-none font-extrabold opacity-10">{day}</p>
+                <p className="uppercase tracking-widest text-lg font-semibold">
+                  {month} {year}
+                </p>
+              </div>
+              <div className="py-3 flex flex-col items-start justify-center border-b border-white/20 relative">
+                {show.image && (
+                  <Link href={show.link || "#"} target="_blank">
+                    <Image
+                      src={show.image}
+                      alt={`Miniature ${show.location}`}
+                      width={120}
+                      height={80}
+                      className="rounded shadow-lg mb-2"
+                    />
+                  </Link>
+                )}
+                <p>{show.location}</p>
+              </div>
+              <div className="py-3 flex items-center border-b border-white/20">
+                <Link
+                  href={getGoogleMapsLink(show.address)}
+                  target="_blank"
+                  className="hover:underline"
+                >
+                  {show.address}
+                </Link>
+              </div>
+            </div>
+          );
+        })}
       </div>
     </section>
   );
