@@ -63,7 +63,7 @@ export default function Banner() {
 
       <div className={openSans.className}>
   <div className="min-h-[950px] relative z-10 h-full max-w-6xl mx-auto flex flex-col justify-center text-white p-10">
-    <AnimatedHeading>BIOGRAPHY</AnimatedHeading>
+    <AnimatedHeading>BIOGRAPHIE</AnimatedHeading>
 
     <div className="innerBiography p-5 leading-8 space-y-10">
       <Paragraph>

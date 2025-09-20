@@ -16,7 +16,7 @@ export default function MusicSection() {
     <section id="music" className="text-white py-24 px-6 lg:px-20">
       <div className="max-w-7xl mx-auto">
         <h3 className="sm:text-3xl text-2xl font-black text-center text-yellow-600 mb-16">
-          MUSIC
+          MUSIQUE
         </h3>
 
         {/* Player audio Spotify */}
@@ -66,5 +66,5 @@ export default function MusicSection() {
         </div> */}
       </div>
     </section>
-  );  
+  );
 }

@@ -79,8 +79,8 @@ const FlipNav = () => {
         </Link>
 
         <NavLink text="Bio" href="#about" />
-        <NavLink text="Music" href="#music" />
-        <NavLink text="Shows" href="#shows" />
+        <NavLink text="Musique" href="#music" />
+        <NavLink text="Évènements" href="#shows" />
         <NavLink text="Contact" href="/contact" />
       </div>
 
@@ -130,8 +130,8 @@ const NavMenu = ({ isOpen, setIsOpen }) => {
       className="absolute p-4 bg-[#083643] shadow-lg left-0 right-0 top-full origin-top flex flex-col gap-4"
     >
       <MenuLink text="Bio" href="#about" setIsOpen={setIsOpen} />
-      <MenuLink text="Music" href="#music" setIsOpen={setIsOpen} />
-      <MenuLink text="Shows" href="#shows" setIsOpen={setIsOpen} />
+      <MenuLink text="Musique" href="#music" setIsOpen={setIsOpen} />
+      <MenuLink text="Évènements" href="#shows" setIsOpen={setIsOpen} />
       <MenuLink text="Contact" href="/contact" setIsOpen={setIsOpen} />
     </motion.div>
   );
