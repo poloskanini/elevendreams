@@ -72,7 +72,7 @@ export default function Contact() {
                   <EnvelopeIcon aria-hidden="true" className="h-7 w-6 text-gray-400" />
                 </dt>
                 <dd>
-                  <a href="mailto:nicolasbarthes.lana@gmail.com" className="hover:text-white">
+                  <a href="mailto:contact@elevendreams.fr" className="hover:text-white">
                     contact@elevendreams.fr
                   </a>
                 </dd>
