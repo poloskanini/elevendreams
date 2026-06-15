@@ -54,7 +54,7 @@ export default function Contact() {
               integer elementum id sem. Arcu sed malesuada et magna.
             </p> */}
             <dl className="mt-10 space-y-4 text-base/7 text-gray-300">
-              
+
               <div className="flex gap-x-4">
                 <dt className="flex-none">
                   <span className="sr-only">Telephone</span>
@@ -73,7 +73,7 @@ export default function Contact() {
                 </dt>
                 <dd>
                   <a href="mailto:nicolasbarthes.lana@gmail.com" className="hover:text-white">
-                    nicolasbarthes.lana@gmail.com
+                    contact@elevendreams.fr
                   </a>
                 </dd>
               </div>

@@ -86,6 +86,11 @@ const LogoItem = ({ imgSrc, name, link }) => {
 const LogoItemsTop = () => (
   <>
     <LogoItem
+        imgSrc="/images/logo le plan white.png"
+        name="LE PLAN"
+        link="https://supersonic-club.fr/"
+      />
+    <LogoItem
       imgSrc="/images/Logos Salles/supersonic.png"
       name="LE SUPERSONIC"
       link="https://supersonic-club.fr/"

@@ -9,10 +9,22 @@ export default function UpcomingShows() {
   const upcoming = [
     // 2026
     {
+      start: "11 juillet 2026",
+      location: "FESTIV'ÉTÉ - 18H",
+      address: "Office de Tourisme d'Enghien-les-Bains, 81 rue du Général de Gaulle, 95880 Enghien-les-Bains",
+      image: "/images/GxMPcj6XsAABdT5.jpg",
+    },
+    {
+      start: "20 juin 2026",
+      location: "ÉTIOLLES MONTE LE SON - 21H",
+      address: "Maison des Arts Martiaux (plein air), 91450 ÉTIOLLES",
+      image: "/images/720317055_1464769629015736_2314568326411900791_n.jpg",
+    },
+    {
       start: "13 juin 2026",
       location: "LE PLAN - Concert d'ELEVEN DREAMS",
       address: "1 avenue Louis Aragon, 91130 Ris-Orangis",
-      image: "/images/AFFICHE-emc-2024.jpg",
+      image: "/images/722963838_1624214279710660_2904884473424047167_n.jpg",
       link: "https://leplan.com/home/",
     },
     {
